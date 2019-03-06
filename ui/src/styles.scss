@@ -1,0 +1,17 @@
+/* You can add global styles to this file, and also import other style files */
+
+// If you want to override variables do it here
+@import "scss/variables";
+
+// If you want to add something do it here
+@import "scss/custom";
+
+$fa-font-path: "~font-awesome/fonts";
+@import "~font-awesome/scss/font-awesome";
+
+// Google Lato TTF => https://fonts.google.com/specimen/Lato?selection.family=Lato
+// To add the ultra-thick weight you have to add the 900 (but it adds latency to the page)
+@import url('https://fonts.googleapis.com/css?family=Lato:400,700');
+
+// Default Bootstrap 4
+@import "~bootstrap/scss/bootstrap"

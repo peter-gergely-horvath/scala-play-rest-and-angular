@@ -18,13 +18,22 @@ import { DashboardRoutingModule } from './dashboard-routing.module';
     NbMenuModule.forRoot(),
     NbAuthModule.forRoot({
       strategies: [
-        // NbPasswordAuthStrategy.setup({
-        //   name: 'email',
-        // }),
-        NbDummyAuthStrategy.setup({
+        NbPasswordAuthStrategy.setup({
           name: 'email',
-          delay: 2500,
+          baseEndpoint: 'http://localhost:9000/api',
+          login: {
+            // ...
+            endpoint: '/user',
+          },
+          register: {
+            // ...
+            endpoint: '/api/auth/register',
+          },
         })
+        // NbDummyAuthStrategy.setup({
+        //   name: 'email',
+        //   delay: 2500,
+        // })
       ],
       forms: {
         register: {

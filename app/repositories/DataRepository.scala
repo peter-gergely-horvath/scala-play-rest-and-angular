@@ -6,11 +6,6 @@ import models.{Post, User, Comment}
 @Singleton
 class DataRepository {
 
-  private val users = Seq(
-    User("alfre@test.test", "foo"),
-    User("admin@test.test", "test")
-  )
-
   // A mock for serving posts
   private val posts = Seq(
     Post(1, "This is an example of a blog post"),
@@ -26,11 +21,6 @@ class DataRepository {
     Comment(3, 2, "Great, thanks for this post", "Joe Bloggs")
   )
 
-  def getUser(email: String, password: String): Option[User] =
-    users.collectFirst {
-      case u if u.email == email && u.password == password => u
-    }
-
   /**
     * Returns a blog post that matches the specified id, or None if no
     * post was found (collectFirst returns None if the function is undefined for the
@@ -41,7 +31,7 @@ class DataRepository {
   }
 
   def getComments(postId: Int): Seq[Comment] = comments.collect {
-      case c if c.postId == postId => c
+    case c if c.postId == postId => c
   }
 
 }
